@@ -72,7 +72,32 @@
             <button type="submit">Thêm Sản Phẩm</button>
             <button type="button" id="cancelBtn">Hủy</button>
         </form>
+                        
+            <div class="filter-section">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+                    <button id="searchBtn">Tìm</button>
+                </div>
+                
+                <select id="priceRange">
+                    <option value="">Tất cả giá</option>
+                    <option value="0-100000">Dưới 100,000đ</option>
+                    <option value="100000-200000">100,000đ - 200,000đ</option>
+                    <option value="200000">Trên 200,000đ</option>
+                </select>
+                
+                <select id="categorySelect">
+                    <option value="">Tất cả danh mục</option>
+                    <option value="programming">Lập trình</option>
+                    <option value="web">Web</option>
+                    <option value="framework">Framework</option>
+                </select>
+            </div>
             
+            <div class="sort-buttons">
+                <button onclick="sortProducts('name')">Sắp xếp theo tên</button>
+                <button onclick="sortProducts('price')">Sắp xếp theo giá</button>
+            </div>
             <div id="product-list">
                     <!-- Sản phẩm 1 -->
                 <article class="product-item">
