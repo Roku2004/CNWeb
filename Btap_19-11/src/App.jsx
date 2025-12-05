@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import './App.css';
-import UserTable from './components/UserTable';
-import UserForm from './components/UserForm';
-import SearchBar from './components/SearchBar';
-import Pagination from './components/Pagination';
+import DataGrid from './components/DataGrid';
+import EmployeeFormModal from './components/EmployeeFormModal';
+import FilterInput from './components/FilterInput';
+import PageNavigator from './components/PageNavigator';
 import { getUsers, createUser, updateUser, deleteUser } from './services/userService';
 
 function App() {
@@ -185,7 +185,7 @@ function App() {
       )}
 
       <div className="controls">
-        <SearchBar searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+        <FilterInput searchTerm={searchTerm} onSearchChange={handleSearchChange} />
         <button onClick={handleAddUser} className="btn-add">
           Add New User
         </button>
@@ -196,20 +196,20 @@ function App() {
         {searchTerm && ` (filtered from ${users.length} total)`}
       </div>
 
-      <UserTable
+      <DataGrid
         users={paginatedUsers}
         onEdit={handleEditUser}
         onDelete={handleDeleteUser}
       />
 
-      <Pagination
+      <PageNavigator
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
 
       {showForm && (
-        <UserForm
+        <EmployeeFormModal
           user={editingUser}
           onSave={handleSaveUser}
           onCancel={handleCancelForm}
