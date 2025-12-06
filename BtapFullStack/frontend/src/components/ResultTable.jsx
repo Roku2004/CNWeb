@@ -73,7 +73,7 @@ function ResultTable({ keyword = '', student, onAdded }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        setUsers((prev) => prev.map((u) => (u._id === editing._id ? data : u)))
+        setStudents((prev) => prev.map((s) => (s._id === editing._id ? data : s)))
         setEditing(null)
       })
       .catch((err) => console.error('Error updating student:', err))
